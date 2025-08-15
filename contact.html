@@ -1,0 +1,128 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Roast & Ritual</title>
+  <meta name="description" content="Contact Roast & Ritual for wholesale, events, or general inquiries">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode:'class', theme:{ extend:{ fontFamily:{ heading:['Merriweather','serif'], ui:['Poppins','sans-serif'] } } } }</script>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none min-h-screen bg-white font-ui text-gray-900" id="contactRoot">
+  <header class="w-full max-w-none bg-white sticky top-0 z-30 border-b">
+    <div class="w-full max-w-none px-6 py-4 flex items-center justify-between">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-coffee-500 to-coffee-700 flex items-center justify-center text-white">R</div><span class="font-heading text-lg">Roast & Ritual</span></a>
+      <div class="flex items-center gap-6">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="hover:text-coffee-700">Home</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="hover:text-coffee-700">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full max-w-none px-6 py-12">
+    <h1 class="text-3xl font-heading">Get in touch</h1>
+    <p class="text-gray-600 mt-2">Questions, wholesale inquiries, or private cuppings — we’d love to hear from you.</p>
+
+    <div class="w-full max-w-none mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section class="bg-[var(--card)] p-6 rounded-xl shadow-sm">
+        <h3 class="font-semibold">Contact Form</h3>
+        <form id="contactForm" class="mt-4 space-y-4" novalidate>
+          <div>
+            <label class="text-sm">Full name</label>
+            <input id="name" required type="text" class="w-full mt-1 px-3 py-2 rounded-md border" placeholder="Your name" aria-required="true">
+            <div id="nameErr" class="text-red-600 text-sm hidden">Please enter your name.</div>
+          </div>
+
+          <div>
+            <label class="text-sm">Email</label>
+            <input id="email" required type="email" class="w-full mt-1 px-3 py-2 rounded-md border" placeholder="you@domain.com" aria-required="true">
+            <div id="emailErr" class="text-red-600 text-sm hidden">Please enter a valid email.</div>
+          </div>
+
+          <div>
+            <label class="text-sm">Reason</label>
+            <select id="topic" class="w-full mt-1 px-3 py-2 rounded-md border">
+              <option>General question</option>
+              <option>Wholesale</option>
+              <option>Private cupping</option>
+              <option>Event / Pop-up</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm">Message</label>
+            <textarea id="message" rows="5" class="w-full mt-1 px-3 py-2 rounded-md border" placeholder="Tell us more..."></textarea>
+            <div id="msgErr" class="text-red-600 text-sm hidden">Please include a short message.</div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button type="submit" class="px-4 py-2 bg-coffee-700 text-white rounded-md">Send Message</button>
+            <div id="contactStatus" class="text-sm text-coffee-700"></div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="bg-[var(--card)] p-6 rounded-xl shadow-sm">
+        <h3 class="font-semibold">Visit or Mail</h3>
+        <p class="text-sm text-gray-600 mt-2">Pop-ups and retail partners listed on our socials. For wholesale: wholesale@roastandritual.example</p>
+
+        <div class="mt-4">
+          <h4 class="font-medium">Hours</h4>
+          <p class="text-sm text-gray-600 mt-1">Mon–Fri: 9am–5pm<br>Sat: 9am–2pm</p>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-medium">Map</h4>
+          <img src="https://images.unsplash.com/photo-1576949895406-b025321eca88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw0fHxTbWFsbCUyMHJvYXN0ZXJ5JTIwbWFwJTIwcGxhY2Vob2xkZXIlMjBhZXJpYWwlMjB2aWV3fGVufDB8MHx8fDE3NTUyNzMwNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Map placeholder" class="w-full h-40 object-cover rounded-md mt-2" loading="lazy">
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-medium">Phone</h4>
+          <p class="text-sm text-gray-600 mt-1">+1 (555) 987-ROAS</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="w-full max-w-none bg-white border-t py-6 px-6 text-sm text-gray-500">
+    <div class="flex items-center justify-between">
+      <div>© <span id="yearContact"></span> Roast & Ritual</div>
+      <div class="flex gap-4">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="hover:text-coffee-700">Home</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="hover:text-coffee-700">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yearContact').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const msg = document.getElementById('message');
+      let ok = true;
+
+      if(!name.value.trim()){ document.getElementById('nameErr').classList.remove('hidden'); ok=false } else { document.getElementById('nameErr').classList.add('hidden') }
+      if(!email.value.includes('@')){ document.getElementById('emailErr').classList.remove('hidden'); ok=false } else { document.getElementById('emailErr').classList.add('hidden') }
+      if(!msg.value.trim()){ document.getElementById('msgErr').classList.remove('hidden'); ok=false } else { document.getElementById('msgErr').classList.add('hidden') }
+
+      if(!ok) return;
+      const status = document.getElementById('contactStatus');
+      status.textContent = 'Sending...';
+      setTimeout(()=>{ status.textContent = 'Thanks — we received your message!'; form.reset(); }, 900);
+    });
+  </script>
+</body>
+</html>
