@@ -1,0 +1,390 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#362d24">
+  <meta name="description" content="Roast & Ritual — Artisanal coffee, small-batch roasts and mindful brewing.">
+  <title>Roast & Ritual — Artisanal Coffee</title>
+
+  <!-- Google Fonts (declared above in comments for generator) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Merriweather','serif'],
+            ui: ['Poppins','sans-serif']
+          },
+          colors: {
+            coffee: {
+              50: '#FBF7F5',
+              100: '#F3EDEA',
+              300: '#C9A78F',
+              500: '#7A4B32',
+              700: '#4B2F24'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* small helpers for glass & theme transitions */
+    :root{
+      --bg: #fff;
+      --card: rgba(255,255,255,0.7);
+      --muted: #6b6b6b;
+      --accent: #7A4B32;
+    }
+    .dark-root{ --bg:#0b0a09; --card: rgba(18,18,18,0.5); --muted:#cfcfcf; --accent:#e8c5b5 }
+    .reveal{ opacity:0; transform: translateY(14px) scale(.995); transition: all .6s cubic-bezier(.2,.9,.2,1) }
+    .reveal.show{ opacity:1; transform: none }
+  </style>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none min-h-screen bg-[var(--bg)] text-gray-900 font-ui transition-colors duration-500" id="pageRoot">
+
+  <!-- Top nav (full width) -->
+  <nav class="w-full max-w-none fixed top-0 left-0 right-0 z-50 backdrop-blur bg-[color:var(--card)] border-b border-white/10 shadow-lg">
+    <div class="w-full max-w-none px-6 py-4 flex items-center justify-between">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3" aria-label="Roast & Ritual home">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-coffee-500 to-coffee-700 flex items-center justify-center text-white font-bold">R</div>
+        <span class="text-lg font-semibold font-heading">Roast & Ritual</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="text-sm hover:text-coffee-700 transition">About</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="text-sm hover:text-coffee-700 transition">Contact</a>
+        <a href="#shop" class="px-4 py-2 rounded-md bg-coffee-700 text-white hover:bg-coffee-500 transition">Shop</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="p-2 rounded-md hover:bg-white/10 focus:outline-none" aria-label="Toggle dark mode">
+          <!-- icon toggles via JS -->
+          <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-12.34l-.7.7M4.04 19.96l-.7.7M21 12h-1M4 12H3m16.66 4.66l-.7-.7M4.04 4.04l-.7-.7"/></svg>
+        </button>
+
+        <div class="relative">
+          <button id="cartBtn" class="p-2 rounded-md hover:bg-white/10" aria-haspopup="dialog" aria-expanded="false" aria-controls="cartPanel">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 7h12l-2-7"/></svg>
+          </button>
+          <span id="cartCount" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+        </div>
+
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md hover:bg-white/10" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="block py-2">About</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="block py-2">Contact</a>
+      <a href="#shop" class="block py-2">Shop</a>
+    </div>
+  </nav>
+
+  <!-- Hero: full width with image and overlay -->
+  <header class="w-full max-w-none relative mt-16" aria-hidden="false">
+    <div class="w-full h-96 md:h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1531551622092-4bca6a0f3bf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw4fHxDbG9zZS11cCUyMHN0ZWFtaW5nJTIwcG91ci1vdmVyJTIwY29mZmVlJTIwaW4lMjBhJTIwaGFuZG1hZGUlMjBjZXJhbWljJTIwY3VwJTIwb24lMjBhJTIwd29vZGVuJTIwdGFibGUlMkMlMjBzb2Z0JTIwbW9ybmluZyUyMGxpZ2h0JTJDJTIwd2FybSUyMGJyb3duJTIwdG9uZXMlMkMlMjBzaGFsbG93JTIwZGVwdGglMjBvZiUyMGZpZWxkfGVufDB8MHx8fDE3NTUyNzMwNDd8MA&ixlib=rb-4.1.0&q=80&w=1080')" role="img" aria-label="Pour over coffee"></div>
+
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-full max-w-none px-6 text-center">
+        <div class="inline-block bg-white/20 backdrop-blur rounded-3xl px-6 py-8 shadow-lg glassmorphism">
+          <h1 class="text-4xl md:text-6xl font-heading text-white drop-shadow-lg">Roast & Ritual</h1>
+          <p class="mt-3 text-white/90 text-lg md:text-xl">Small-batch roasts, ethically sourced beans, and mindful brewing guides to elevate your daily ritual.</p>
+
+          <div class="mt-6 flex items-center justify-center gap-4">
+            <a href="#shop" class="px-6 py-3 rounded-full bg-gradient-to-r from-coffee-700 to-coffee-500 text-white font-semibold hover:scale-105 transform transition">Explore Roasts</a>
+            <button id="quickTour" class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">Take a Quick Tour</button>
+          </div>
+
+          <div class="mt-4 text-sm text-white/80">Free shipping over $60 • Fresh roast date on every bag</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="w-full max-w-none px-6 py-12">
+    <!-- Search + Filters -->
+    <section class="w-full max-w-none mb-8 reveal" data-reveal>
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="w-full md:w-2/3 flex items-center gap-3 bg-[var(--card)] rounded-xl p-3 shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+          <input id="search" type="search" placeholder="Search roasts, regions, tasting notes..." class="w-full bg-transparent placeholder-gray-400 focus:outline-none px-2" aria-label="Search roasts">
+        </div>
+
+        <div class="w-full md:w-1/3 flex gap-2 items-center justify-end">
+          <select id="sort" class="px-3 py-2 rounded-md border border-gray-200 bg-white">
+            <option value="featured">Featured</option>
+            <option value="new">Newest</option>
+            <option value="price_asc">Price: Low → High</option>
+            <option value="price_desc">Price: High → Low</option>
+          </select>
+          <button id="filterBtn" class="px-3 py-2 rounded-md bg-white border hover:shadow">Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop / Products grid -->
+    <section id="shop" class="w-full max-w-none">
+      <div class="flex items-center justify-between mb-6 reveal" data-reveal>
+        <h2 class="text-2xl font-semibold">Featured Roasts</h2>
+        <div class="text-sm text-gray-500">Freshly roasted weekly • Ships in compostable bags</div>
+      </div>
+
+      <div id="products" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Product card template will be injected by JS for demo; fallback static entries -->
+        <article class="product-card w-full bg-[var(--card)] rounded-xl shadow-lg overflow-hidden p-0 transition transform hover:-translate-y-1">
+          <img data-src="https://images.unsplash.com/photo-1730402237943-77047c2389b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw0fHxEYXJrJTIwY2hvY29sYXRlJTIwc2luZ2xlLW9yaWdpbiUyMGNvZmZlZSUyMGluJTIwYSUyMGJ1cmxhcCUyMHNhY2slMjB3aXRoJTIwYmVhbnMlMjBzcGlsbGluZyUyQyUyMHdhcm0lMjBkaXJlY3Rpb25hbCUyMGxpZ2h0aW5nfGVufDB8MHx8fDE3NTUyNzMwNDd8MA&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Espresso Kiss" class="w-full h-48 object-cover lazyimg">
+          <div class="p-4">
+            <h3 class="font-semibold">Espresso Kiss — Dark Roast</h3>
+            <p class="text-sm text-gray-600 mt-1">Notes of dark chocolate, caramel, and toasted hazelnut.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold">$16</span>
+                <span class="text-sm text-gray-500"> / 12oz</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="quickView px-3 py-1 rounded-md bg-white/90 text-coffee-700 border" data-id="espresso" aria-haspopup="dialog">Quick</button>
+                <button class="addToCart px-3 py-1 rounded-md bg-coffee-700 text-white" data-id="espresso" data-name="Espresso Kiss" data-price="16">Add</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card w-full bg-[var(--card)] rounded-xl shadow-lg overflow-hidden p-0 transition transform hover:-translate-y-1">
+          <img data-src="https://images.unsplash.com/photo-1593494444948-8974e128b843?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw2fHxBJTIwbGlnaHQlMjByb2FzdCUyMGJhZyUyMGFuZCUyMGElMjBjdXBwaW5nJTIwc3Bvb24lMjB3aXRoJTIwYnJpZ2h0JTIwY2l0cnVzJTIwY29mZmVlJTIwYmVhbnMlMjBvbiUyMGElMjBjb25jcmV0ZSUyMHNsYWJ8ZW58MHwwfHx8MTc1NTI3MzA0OHww&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Sunshine Pour" class="w-full h-48 object-cover lazyimg">
+          <div class="p-4">
+            <h3 class="font-semibold">Sunshine Pour — Light Roast</h3>
+            <p class="text-sm text-gray-600 mt-1">Lively citrus, honeysuckle, and crisp finish.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold">$18</span>
+                <span class="text-sm text-gray-500"> / 12oz</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="quickView px-3 py-1 rounded-md bg-white/90 text-coffee-700 border" data-id="sunshine">Quick</button>
+                <button class="addToCart px-3 py-1 rounded-md bg-coffee-700 text-white" data-id="sunshine" data-name="Sunshine Pour" data-price="18">Add</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card w-full bg-[var(--card)] rounded-xl shadow-lg overflow-hidden p-0 transition transform hover:-translate-y-1">
+          <img data-src="https://pixabay.com/get/ga26190756363fc2eafa5e57e6e132c5a8d7976fad4a553b391ca7d1a3e3381f0a037857a078619bf4d91a0918233e467_640.jpg" loading="lazy" alt="Quiet Decaf" class="w-full h-48 object-cover lazyimg">
+          <div class="p-4">
+            <h3 class="font-semibold">Quiet Decaf — Swiss Water</h3>
+            <p class="text-sm text-gray-600 mt-1">Smooth cocoa notes with low acidity.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold">$15</span>
+                <span class="text-sm text-gray-500"> / 12oz</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="quickView px-3 py-1 rounded-md bg-white/90 text-coffee-700 border" data-id="decaf">Quick</button>
+                <button class="addToCart px-3 py-1 rounded-md bg-coffee-700 text-white" data-id="decaf" data-name="Quiet Decaf" data-price="15">Add</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Comparison table + brewing guide -->
+    <section class="w-full max-w-none mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="col-span-2 bg-[var(--card)] rounded-xl p-6 shadow-sm reveal" data-reveal>
+        <h3 class="font-semibold">Which roast fits your ritual?</h3>
+        <div class="mt-4 overflow-auto">
+          <table class="w-full text-sm table-auto">
+            <thead>
+              <tr class="text-left text-gray-600">
+                <th class="pr-4">Type</th>
+                <th class="pr-4">Flavor</th>
+                <th class="pr-4">Recommended Brew</th>
+                <th class="pr-4">Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-gray-200">
+                <td class="py-3">Light Roast</td>
+                <td class="py-3">Bright, floral, citrus</td>
+                <td class="py-3">Pour-over / Aeropress</td>
+                <td class="py-3">Morning clarity</td>
+              </tr>
+              <tr class="border-t border-gray-200 bg-white/10">
+                <td class="py-3">Medium Roast</td>
+                <td class="py-3">Balanced, caramel, chocolate</td>
+                <td class="py-3">Drip / French press</td>
+                <td class="py-3">All-day sipping</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="py-3">Dark Roast</td>
+                <td class="py-3">Deep chocolate, smoky</td>
+                <td class="py-3">Espresso / Moka pot</td>
+                <td class="py-3">Bold espresso
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="bg-[var(--card)] rounded-xl p-6 shadow-sm reveal" data-reveal>
+        <h4 class="font-medium">Brew Timer</h4>
+        <p class="text-sm text-gray-600 mt-2">Choose a roast and follow the guided timer to brew perfectly.</p>
+
+        <div class="mt-4">
+          <select id="brewSelect" class="w-full px-3 py-2 rounded-md border">
+            <option value="light">Light Roast — 2:30</option>
+            <option value="medium">Medium Roast — 3:30</option>
+            <option value="dark">Dark Roast — 4:00</option>
+          </select>
+        </div>
+
+        <div class="mt-4">
+          <div class="w-full bg-white/30 rounded-full h-3 overflow-hidden">
+            <div id="brewProgress" class="h-3 bg-coffee-700 w-0 transition-all"></div>
+          </div>
+          <div class="mt-2 text-sm text-gray-600 flex items-center justify-between">
+            <div id="brewTime">0:00</div>
+            <div>
+              <button id="brewStart" class="px-3 py-1 rounded-md bg-coffee-700 text-white">Start</button>
+              <button id="brewReset" class="px-3 py-1 rounded-md border ml-2">Reset</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Testimonials slider (simple) -->
+    <section class="w-full max-w-none mt-12 reveal" data-reveal>
+      <h3 class="text-xl font-semibold">What the community says</h3>
+      <div id="testimonials" class="mt-4 relative overflow-hidden rounded-xl">
+        <div class="w-full flex gap-4 transition-transform duration-500" style="transform: translateX(0%);">
+          <blockquote class="w-full md:w-1/2 p-6 bg-[var(--card)] rounded-xl shadow">
+            <p class="italic">"Roast & Ritual's light roast is the most vibrant cup I've had — bright and clean. The roast date gives real transparency."</p>
+            <footer class="mt-3 text-sm font-medium">— Jordan K.</footer>
+          </blockquote>
+
+          <blockquote class="w-full md:w-1/2 p-6 bg-[var(--card)] rounded-xl shadow hidden md:block">
+            <p class="italic">"The packaging and direct trade notes make me feel connected to the farms. Love the tasting notes."</p>
+            <footer class="mt-3 text-sm font-medium">— Priya S.</footer>
+          </blockquote>
+        </div>
+
+        <div class="absolute right-4 bottom-4 flex gap-2">
+          <button id="prevTest" class="p-2 rounded-full bg-white/20">‹</button>
+          <button id="nextTest" class="p-2 rounded-full bg-white/20">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ accordion -->
+    <section class="w-full max-w-none mt-12 reveal" data-reveal>
+      <h3 class="text-xl font-semibold">FAQ</h3>
+      <div id="faq" class="mt-4 space-y-2">
+        <details class="bg-[var(--card)] p-4 rounded-lg" open>
+          <summary class="font-medium">Where do you source your beans?</summary>
+          <div class="mt-2 text-sm text-gray-600">We partner directly with small farms across Ethiopia, Colombia, and Sumatra that practice regenerative agriculture. We publish crop and roast notes with each batch.</div>
+        </details>
+
+        <details class="bg-[var(--card)] p-4 rounded-lg">
+          <summary class="font-medium">How soon after roasting do you ship?</summary>
+          <div class="mt-2 text-sm text-gray-600">Orders typically ship within 48 hours of roasting to ensure peak freshness.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="w-full max-w-none mt-12 reveal" data-reveal>
+      <h3 class="text-xl font-semibold">Gallery</h3>
+      <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+        <img src="https://pixabay.com/get/g7ba7fddd79fa3bbf45314ad355f735ac31e3559b98a4d5334d63066a08d30d4fd6ad26101b26ed7178a3808f442425f5dafb1f947c547286a53c03f55a1f2c6d_640.jpg" loading="lazy" alt="Gallery 1" class="h-64 w-full object-cover rounded-lg">
+        <img src="https://images.unsplash.com/photo-1623008473501-a58a2783d81d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwxfHxSb2FzdGluZyUyMGRydW0lMjB3aXRoJTIwYmVhbnMlMjBtaWQtcm9hc3QlMkMlMjB3YXJtJTIwZ2xvd3xlbnwwfDB8fHwxNzU1MjczMDUwfDA&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Gallery 2" class="h-64 w-full object-cover rounded-lg">
+        <img src="https://images.pexels.com/photos/6726244/pexels-photo-6726244.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" loading="lazy" alt="Gallery 3" class="h-64 w-full object-cover rounded-lg">
+        <img src="https://images.unsplash.com/photo-1730979219871-2fb3706ad56f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw0fHxIYW5kcyUyMGN1cHBpbmclMjBmcmVzaGx5JTIwYnJld2VkJTIwZXNwcmVzc28lMkMlMjBjcmVtYSUyMHZpc2libGV8ZW58MHwwfHx8MTc1NTI3MzA1Mnww&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Gallery 4" class="h-64 w-full object-cover rounded-lg">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Cart Panel -->
+  <aside id="cartPanel" class="fixed right-4 bottom-4 w-80 max-w-none bg-[var(--card)] rounded-xl shadow-lg p-4 hidden" role="dialog" aria-modal="false" aria-labelledby="cartTitle">
+    <h4 id="cartTitle" class="font-semibold">Your Bag</h4>
+    <div id="cartItems" class="mt-3 space-y-3 max-h-60 overflow-auto text-sm"></div>
+    <div class="mt-4 flex items-center justify-between">
+      <div>
+        <span class="text-sm text-gray-600">Subtotal</span>
+        <div id="cartSubtotal" class="font-bold">$0.00</div>
+      </div>
+      <div class="flex gap-2">
+        <button id="clearCart" class="px-3 py-1 text-sm bg-white/20 rounded-md">Clear</button>
+        <button id="checkout" class="px-3 py-1 bg-coffee-700 text-white rounded-md">Checkout</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div id="modal" class="fixed inset-0 z-60 hidden items-center justify-center bg-black/50" role="dialog" aria-modal="true">
+    <div class="w-full max-w-none md:w-3/4 lg:w-1/2 bg-[var(--card)] rounded-2xl p-6 shadow-lg">
+      <button id="modalClose" class="ml-auto mb-2 p-1 rounded-md">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full max-w-none bg-[var(--card)] border-t p-6 mt-12">
+    <div class="w-full max-w-none flex flex-col md:flex-row items-start justify-between gap-6">
+      <div class="w-full md:w-1/3">
+        <h5 class="font-heading text-lg">Roast & Ritual</h5>
+        <p class="text-sm text-gray-600 mt-2">We roast small, ship fresh, and stand by the farmers — one mindful cup at a time.</p>
+      </div>
+
+      <div class="w-full md:w-1/3 flex gap-6">
+        <div>
+          <h6 class="font-medium">Shop</h6>
+          <ul class="text-sm text-gray-600 mt-2">
+            <li><a href="#shop" class="hover:text-coffee-700">All Roasts</a></li>
+            <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="hover:text-coffee-700">Our Story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="font-medium">Help</h6>
+          <ul class="text-sm text-gray-600 mt-2">
+            <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="hover:text-coffee-700">Contact</a></li>
+            <li><a href="#" class="hover:text-coffee-700">Shipping</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/3">
+        <h6 class="font-medium">Join the ritual</h6>
+        <p class="text-sm text-gray-600 mt-2">One delicious email per month — brewing tips, new releases, and limited drops.</p>
+        <form id="footerSubscribe" class="mt-3 flex gap-2">
+          <input id="footerEmail" type="email" placeholder="Email address" class="px-3 py-2 rounded-md border border-gray-200 w-full" aria-label="Subscribe email">
+          <button type="submit" class="px-3 py-2 bg-coffee-700 text-white rounded-md">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="w-full text-center text-sm text-gray-500 px-6 py-4">© <span id="year"></span> Roast & Ritual — All rights reserved.</div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
