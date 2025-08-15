@@ -1,0 +1,111 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700&family=Merriweather:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About — Roast & Ritual</title>
+  <meta name="description" content="About Roast & Ritual: our story, sourcing, and team">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode:'class', theme:{ extend:{ fontFamily:{ heading:['Merriweather','serif'], ui:['Poppins','sans-serif'] } } } }
+  </script>
+  <style>
+    :root{--bg:#fff;--card:rgba(255,255,255,0.75)}
+    .dark-root{--bg:#0b0a09;--card:rgba(18,18,18,0.6)}
+  </style>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="w-full max-w-none min-h-screen bg-[var(--bg)] font-ui text-gray-900" id="aboutRoot">
+  <header class="w-full max-w-none bg-[var(--card)] backdrop-blur sticky top-0 z-30 border-b">
+    <div class="w-full max-w-none px-6 py-4 flex items-center justify-between">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-coffee-500 to-coffee-700 flex items-center justify-center text-white">R</div><span class="font-heading text-lg">Roast & Ritual</span></a>
+      <div class="flex items-center gap-6">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="hover:text-coffee-700">Home</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="hover:text-coffee-700">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full max-w-none px-6 py-12">
+    <section class="w-full max-w-none mb-8">
+      <h1 class="text-3xl md:text-4xl font-heading">Our Story</h1>
+      <p class="mt-4 text-gray-600">We began as two friends with a shared reverence for a good cup. We visit farms, cup every lot, and roast in small batches so you experience a cup with origin and season intact. Our mission is to center transparency and craft while supporting regenerative practices.</p>
+    </section>
+
+    <section class="w-full max-w-none grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <div>
+        <img src="https://images.unsplash.com/photo-1686365518309-cb35a1618efa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwyfHxDb2ZmZWUlMjBmYXJtZXIlMjBob2xkaW5nJTIwcmlwZSUyMGNoZXJyaWVzJTIwd2l0aCUyMGx1c2glMjBoaWxsc2lkZSUyMGluJTIwYmFja2dyb3VuZCUyQyUyMHJpY2glMjBjb2xvcnN8ZW58MHwwfHx8MTc1NTI3MzA1M3ww&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Farmer" class="w-full h-72 object-cover rounded-xl shadow-sm">
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold">Sourcing with Care</h3>
+        <p class="mt-3 text-gray-600">We form direct relationships with farmers — pre-financed crop planning, fair pricing, and shared quality goals. Each bag includes batch notes and roast date so you know when it was roasted.</p>
+        <ul class="mt-4 text-sm text-gray-600 space-y-2">
+          <li>• Direct trade & living wages</li>
+          <li>• Regenerative farming practices</li>
+          <li>• Small-batch roasts with roast-date transparency</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="w-full max-w-none mt-12">
+      <h3 class="text-2xl font-semibold">The Team</h3>
+      <p class="text-gray-600 mt-2">A small group of roasters, cuppers, and storytellers devoted to revealing the best in every bean.</p>
+
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div class="bg-[var(--card)] rounded-xl p-4 shadow-sm">
+          <img src="https://pixabay.com/get/gecb5d830acf1d96b10df0773df359f8545f2b3628968c5ebb795eddb1bf908773265ac21c6f91b0b76b5aab5ec154d462865346309f8ecd316c901f566847592_640.jpg" alt="Founder" class="w-full h-44 object-cover rounded-md">
+          <h4 class="mt-3 font-semibold">Alex Moreno</h4>
+          <p class="text-sm text-gray-600 mt-1">Founder & Head Roaster — builds blends and schedules roast profiles.</p>
+        </div>
+
+        <div class="bg-[var(--card)] rounded-xl p-4 shadow-sm">
+          <img src="https://images.pexels.com/photos/5778296/pexels-photo-5778296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Operations" class="w-full h-44 object-cover rounded-md">
+          <h4 class="mt-3 font-semibold">Nadia Alvarez</h4>
+          <p class="text-sm text-gray-600 mt-1">Operations & Partnerships — nurtures farm relationships and logistics.</p>
+        </div>
+
+        <div class="bg-[var(--card)] rounded-xl p-4 shadow-sm">
+          <img src="https://pixabay.com/get/gdf08674a7f321857c9549c4846695209408f15a57fe4b44341626c64fa668955aecfa564923abc67295b450332ba4b0c_640.jpg" alt="Community" class="w-full h-44 object-cover rounded-md">
+          <h4 class="mt-3 font-semibold">Samir Patel</h4>
+          <p class="text-sm text-gray-600 mt-1">Community & Education — leads tastings and brewing workshops.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full max-w-none mt-12 bg-gradient-to-r from-white to-[var(--card)] rounded-xl p-6 shadow-inner">
+      <h3 class="font-semibold">Visit Our Roastery</h3>
+      <p class="text-gray-600 mt-2">We host monthly open roasts and cuppings — sign up to join the next session.</p>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="https://images.unsplash.com/photo-1579255971801-64e22ad8802f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHwyfHxJbnRlcmlvciUyMHJvYXN0ZXJ5JTIwd2l0aCUyMHJvYXN0aW5nJTIwZHJ1bSUyMGFuZCUyMHNhY2tzfGVufDB8MHx8fDE3NTUyNzMwNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" loading="lazy" alt="Roastery" class="h-44 w-full object-cover rounded-md">
+        <div>
+          <h4 class="font-medium">Tours & Tastings</h4>
+          <p class="text-sm text-gray-600 mt-2">Walk-ins welcome for Saturday tastings. Private cuppings available by appointment.</p>
+          <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="inline-block mt-3 px-4 py-2 rounded-md bg-coffee-700 text-white">Book a Tasting</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full max-w-none bg-[var(--card)] border-t p-6 text-sm text-gray-500">
+    <div class="flex items-center justify-between">
+      <div>© <span id="yearAbout"></span> Roast & Ritual</div>
+      <div class="flex gap-4">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="hover:text-coffee-700">Home</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="hover:text-coffee-700">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yearAbout').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
